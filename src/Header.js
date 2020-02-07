@@ -3,9 +3,9 @@ import React from "react";
 const Header = () => {
     return (
         <div>
-            <a>link1</a>
-            <a>link2</a>
-            <a>link3</a>
+            <a href=' '>link1</a>
+            <a href=' '>link2</a>
+            <a href=' '>link3</a>
         </div>
     )
 }
