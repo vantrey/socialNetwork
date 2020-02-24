@@ -1,2 +1,12 @@
 
+.ownMessage {
+  display: flex;
+  justify-content: flex-start;
+  color: blue;
+}
 
+.otherMessage {
+display: flex;
+  justify-content: flex-end;
+  color: #ff1c21;
+}

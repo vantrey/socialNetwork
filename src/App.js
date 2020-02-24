@@ -14,12 +14,10 @@ const App = (props) => {
     <BrowserRouter>
       <div className='appWrapper'>
         <Header/>
-        <Navbar/>
+        <Navbar sidebar={props.state.sidebar}/>
         <div className='appWrapperContent'>
-          <Route /*exact*/ path='/dialogs' render={() => <Dialogs dialogs={props.dialogs}
-                                                                  dialogsMessages={props.dialogsMessages}/>}/>
-
-          <Route path='/Profile' render={() => <Profile profilePosts={props.profilePosts}/>}/>
+          <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePages}/>}/>
+          <Route /*exact*/ path='/dialogs' render={() => <Dialogs dialogsPage={props.state.dialogsPage}/>}/>
           <Route path='/Music' render={() => <Music/>}/>
           <Route path='/News' render={() => <News/>}/>
           <Route path='/Settings' render={() => <Settings/>}/>

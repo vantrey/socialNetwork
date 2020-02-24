@@ -1,11 +1,11 @@
 import React from "react";
-import s from './Message.module.css'
-
+import style from './Message.module.css'
 
 
 const Message = (props) => {
+  let messageStyle = props.ownMessage ? style.ownMessage: style.otherMessage
   return (
-    <div className={s.massage}> {props.message}</div>
+    <span className={messageStyle}> {props.message}</span>
   )
 }
 

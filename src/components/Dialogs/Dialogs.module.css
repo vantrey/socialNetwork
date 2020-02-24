@@ -7,6 +7,10 @@
 }
 
 .messages{
+  width: 35%;
+  font-style: italic;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 

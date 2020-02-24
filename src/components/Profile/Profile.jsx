@@ -6,7 +6,7 @@ import Post from "./MyPosts/Post/Post";
 
 const Profile = (props) => {
 
-  let profilePostsElements = props.profilePosts.map((item, index) => (
+  let profilePostsElements = props.profilePage.profilePosts.map((item, index) => (
     <Post key={index} message={item.message} likesCount={item.likeCount}/>
   ))
   return (
