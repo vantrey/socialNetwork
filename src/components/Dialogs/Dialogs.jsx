@@ -6,8 +6,8 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
   let messageRef = React.createRef()
-  let addNewMessage = () => {
-    alert(messageRef.current.value)
+  let onAddNewDialogsMsg = () => {
+    props.addNewDialogsMsg(messageRef.current.value)
   }
   let dialogsElements = props.dialogsPage.dialogsItems.map((dialog, index) => (
     <Dialog key={index} id={dialog.id} name={dialog.name}/>
@@ -28,7 +28,7 @@ const Dialogs = (props) => {
       <div></div>
       <div className={styles.addNewMsg}>
         <textarea ref={messageRef}/>
-        <button onClick={addNewMessage}>Add message</button>
+        <button onClick={onAddNewDialogsMsg}>Add message</button>
       </div>
     </div>
   )

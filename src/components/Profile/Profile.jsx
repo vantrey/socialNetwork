@@ -13,7 +13,10 @@ const Profile = (props) => {
     <div className={s.content}>
 
       <ProfileInfo/>
-      <MyPosts profilePostsElements={profilePostsElements}/>
+      <MyPosts
+        profilePostsElements={profilePostsElements}
+        addNewPost={props.addNewPost}
+      />
 
     </div>
   )
