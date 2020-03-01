@@ -3,15 +3,20 @@ import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
+  let  newTextRef = React.createRef()
+  let addNewPost = () => {
+    alert(newTextRef.current.value)
+  }
+
   return (
     <div className={s.myPostsWrapper}>
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={newTextRef}/>
         </div>
         <div>
-          <button>Add post</button>
+          <button onClick={addNewPost}>Add post</button>
         </div>
       </div>
       <div className={s.posts}>

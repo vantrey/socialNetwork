@@ -1,12 +1,13 @@
-.dialogs{
+.dialogs {
   display: grid;
   grid-template-columns: 2fr 10fr;
 }
-.dialogsItems{
+
+.dialogsItems {
   padding: 10px;
 }
 
-.messages{
+.messages {
   width: 35%;
   font-style: italic;
   padding: 10px;
@@ -14,3 +15,24 @@
   flex-direction: column;
 }
 
+.addNewMsg {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 23%;
+}
+
+.addNewMsg textarea {
+  align-self: flex-start;
+  margin: 5px;
+  height: 50px;
+  width: 160px;
+}
+
+.addNewMsg button {
+  padding: inherit;
+  margin: 5px;
+  align-self: flex-start;
+  width: 50%;
+}

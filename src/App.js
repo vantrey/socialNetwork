@@ -16,8 +16,10 @@ const App = (props) => {
         <Header/>
         <Navbar sidebar={props.state.sidebar}/>
         <div className='appWrapperContent'>
-          <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePages}/>}/>
-          <Route /*exact*/ path='/dialogs' render={() => <Dialogs dialogsPage={props.state.dialogsPage}/>}/>
+          <Route path='/Profile'
+                 render={() => <Profile profilePage={props.state.profilePages}/>}/>
+          <Route /*exact*/ path='/dialogs'
+                           render={() => <Dialogs dialogsPage={props.state.dialogsPage}/>}/>
           <Route path='/Music' render={() => <Music/>}/>
           <Route path='/News' render={() => <News/>}/>
           <Route path='/Settings' render={() => <Settings/>}/>
