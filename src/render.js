@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {addNewPost} from './redux/state'
 import {addNewDialogsMsg} from './redux/state'
-import {postTextUpd} from './redux/state'
+import {postTextUpd, dialogMsgUpd} from './redux/state'
 
 export let rerenderEntireTree = (state) => {
   ReactDOM.render(<App
@@ -13,6 +13,7 @@ export let rerenderEntireTree = (state) => {
       addNewPost={addNewPost}
       addNewDialogsMsg={addNewDialogsMsg}
       postTextUpd={postTextUpd}
+      dialogMsgUpd={dialogMsgUpd}
     />,
     document.getElementById('root'));
 }
