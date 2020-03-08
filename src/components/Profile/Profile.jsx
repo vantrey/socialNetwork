@@ -15,8 +15,7 @@ const Profile = (props) => {
       <ProfileInfo/>
       <MyPosts
         profilePostsElements={profilePostsElements}
-        addNewPost={props.addNewPost}
-        postTextUpd={props.postTextUpd}
+        store={props.store}
         newPostText={props.profilePage.newPostText}
       />
 
