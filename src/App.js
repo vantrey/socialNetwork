@@ -17,13 +17,15 @@ const App = (props) => {
         <div className='appWrapperContent'>
           <Route path='/Profile' render={() =>
             <Profile
-              store={props.store}
+              postTextUpd={props.postTextUpd}
+              addNewPost={props.addNewPost}
               profilePage={props.state.profilePages}
             />}
           />
           <Route /*exact*/ path='/dialogs' render={() =>
             <Dialogs
-              store={props.store}
+              dialogMsgUpd={props.dialogMsgUpd}
+              addNewDialogsMsg={props.addNewDialogsMsg}
               dialogsPage={props.state.dialogsPage}
             />}
           />
