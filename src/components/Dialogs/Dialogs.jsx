@@ -5,10 +5,10 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
   let onAddNewDialogsMsg = () => {
-    props.addNewDialogsMsg()
+    props.dispatch({type: 'ADD-NEW-DIALOG-MSG'})
   }
   let onDialogMsgUpd = (e) => {
-    props.dialogMsgUpd(e.currentTarget.value)
+    props.dispatch({type: 'DIALOG-MSG-UPD', text: e.currentTarget.value})
   }
   let dialogsElements = props.dialogsPage.dialogsItems.map((dialog, index) => (
     <Dialog key={index} id={dialog.id} name={dialog.name}/>

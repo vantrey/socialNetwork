@@ -3,10 +3,11 @@ import s from './MyPosts.module.css'
 
 const MyPosts = (props) => {
   let onAddNewPost = () => {
-    props.addNewPost()
+    props.dispatch({type: 'ADD-NEW-POST'})
   }
   let onPostTextUpd = (e) => {
-    props.postTextUpd(e.currentTarget.value)
+    let action = {type: 'POST-TEXT-UPD', text: e.currentTarget.value}
+    props.dispatch(action)
   }
 
   return (

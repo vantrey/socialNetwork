@@ -36,7 +36,7 @@ let store = {
   _callSubscriber() {
     console.log('no subscribers')
   },
-  addNewPost() {
+/*  addNewPost() {
     let newPost = {id: 5, message: this._state.profilePages.newPostText, likeCount: 0}
     this._state.profilePages.profilePosts.push(newPost)
     this._state.profilePages.newPostText = ''
@@ -55,12 +55,34 @@ let store = {
   dialogMsgUpd(text) {
     this._state.dialogsPage.newDialogMsgText = text
     this._callSubscriber(this._state)
-  },
+  },*/
   subscribe(observer) {
     this._callSubscriber = observer
   },
   getState() {
     return this._state
+  },
+  dispatch(action) {
+    if (action.type === 'ADD-NEW-POST') {
+      let newPost = {id: 5, message: this._state.profilePages.newPostText, likeCount: 0}
+      this._state.profilePages.profilePosts.push(newPost)
+      this._state.profilePages.newPostText = ''
+      this._callSubscriber(this._state)
+    }
+    else if (action.type === 'ADD-NEW-DIALOG-MSG') {
+      let newMessage = {id: 6, message: this._state.dialogsPage.newDialogMsgText, ownMessage: true}
+      this._state.dialogsPage.dialogsMessages.push(newMessage)
+      this._state.dialogsPage.newDialogMsgText = ''
+      this._callSubscriber(this._state)
+    }
+    else if (action.type === 'POST-TEXT-UPD') {
+      this._state.profilePages.newPostText = action.text
+      this._callSubscriber(this._state)
+    }
+    else if (action.type === 'DIALOG-MSG-UPD') {
+      this._state.dialogsPage.newDialogMsgText = action.text
+      this._callSubscriber(this._state)
+    }
   }
 }
 
