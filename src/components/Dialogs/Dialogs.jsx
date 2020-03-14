@@ -2,13 +2,14 @@ import React from "react";
 import styles from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import {addNewDialogMsgActionCreator, dialogMsgUpdActionCreator} from "../../redux/state"
 
 const Dialogs = (props) => {
   let onAddNewDialogsMsg = () => {
-    props.dispatch({type: 'ADD-NEW-DIALOG-MSG'})
+    props.dispatch(addNewDialogMsgActionCreator())
   }
   let onDialogMsgUpd = (e) => {
-    props.dispatch({type: 'DIALOG-MSG-UPD', text: e.currentTarget.value})
+    props.dispatch(dialogMsgUpdActionCreator(e.currentTarget.value))
   }
   let dialogsElements = props.dialogsPage.dialogsItems.map((dialog, index) => (
     <Dialog key={index} id={dialog.id} name={dialog.name}/>

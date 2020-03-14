@@ -1,3 +1,7 @@
+const ADD_NEW_POST = 'ADD-NEW-POST'
+const ADD_NEW_DIALOG_MSG = 'ADD-NEW-DIALOG-MSG'
+const POST_TEXT_UPD = 'POST-TEXT-UPD'
+const DIALOG_MSG_UPD = 'DIALOG-MSG-UPD'
 let store = {
   _state: {
     profilePages: {
@@ -36,26 +40,6 @@ let store = {
   _callSubscriber() {
     console.log('no subscribers')
   },
-/*  addNewPost() {
-    let newPost = {id: 5, message: this._state.profilePages.newPostText, likeCount: 0}
-    this._state.profilePages.profilePosts.push(newPost)
-    this._state.profilePages.newPostText = ''
-    this._callSubscriber(this._state)
-  },
-  addNewDialogsMsg() {
-    let newMessage = {id: 6, message: this._state.dialogsPage.newDialogMsgText, ownMessage: true}
-    this._state.dialogsPage.dialogsMessages.push(newMessage)
-    this._state.dialogsPage.newDialogMsgText = ''
-    this._callSubscriber(this._state)
-  },
-  postTextUpd(text) {
-    this._state.profilePages.newPostText = text
-    this._callSubscriber(this._state)
-  },
-  dialogMsgUpd(text) {
-    this._state.dialogsPage.newDialogMsgText = text
-    this._callSubscriber(this._state)
-  },*/
   subscribe(observer) {
     this._callSubscriber = observer
   },
@@ -63,28 +47,35 @@ let store = {
     return this._state
   },
   dispatch(action) {
-    if (action.type === 'ADD-NEW-POST') {
+    if (action.type === ADD_NEW_POST) {
       let newPost = {id: 5, message: this._state.profilePages.newPostText, likeCount: 0}
       this._state.profilePages.profilePosts.push(newPost)
       this._state.profilePages.newPostText = ''
       this._callSubscriber(this._state)
-    }
-    else if (action.type === 'ADD-NEW-DIALOG-MSG') {
-      let newMessage = {id: 6, message: this._state.dialogsPage.newDialogMsgText, ownMessage: true}
-      this._state.dialogsPage.dialogsMessages.push(newMessage)
-      this._state.dialogsPage.newDialogMsgText = ''
-      this._callSubscriber(this._state)
-    }
-    else if (action.type === 'POST-TEXT-UPD') {
-      this._state.profilePages.newPostText = action.text
-      this._callSubscriber(this._state)
-    }
-    else if (action.type === 'DIALOG-MSG-UPD') {
-      this._state.dialogsPage.newDialogMsgText = action.text
-      this._callSubscriber(this._state)
+    } else {
+      if (action.type === ADD_NEW_DIALOG_MSG) {
+        let newMessage = {id: 6, message: this._state.dialogsPage.newDialogMsgText, ownMessage: true}
+        this._state.dialogsPage.dialogsMessages.push(newMessage)
+        this._state.dialogsPage.newDialogMsgText = ''
+        this._callSubscriber(this._state)
+      } else {
+        if (action.type === POST_TEXT_UPD) {
+          this._state.profilePages.newPostText = action.text
+          this._callSubscriber(this._state)
+        } else {
+          if (action.type === DIALOG_MSG_UPD) {
+            this._state.dialogsPage.newDialogMsgText = action.text
+            this._callSubscriber(this._state)
+          }
+        }
+      }
     }
   }
 }
+export const addNewPostActionCreator = () => ({type: ADD_NEW_POST})
+export const addNewDialogMsgActionCreator = () => ({type: ADD_NEW_DIALOG_MSG})
+export const postTextUpdActionCreator = (text) => ({type: POST_TEXT_UPD, text: text})
+export const dialogMsgUpdActionCreator = (text) => ({type: DIALOG_MSG_UPD, text: text})
 
 export default store
 
