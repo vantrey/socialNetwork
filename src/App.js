@@ -11,27 +11,27 @@ import Settings from "./components/Settings/Settings";
 
 const App = (props) => {
   return (
-      <div className='appWrapper'>
-        <Header/>
-        <Navbar sidebar={props.state.sidebar}/>
-        <div className='appWrapperContent'>
-          <Route path='/Profile' render={() =>
-            <Profile
-              dispatch={props.dispatch}
-              profilePage={props.state.profilePages}
-            />}
-          />
-          <Route /*exact*/ path='/dialogs' render={() =>
-            <Dialogs
-              dispatch={props.dispatch}
-              dialogsPage={props.state.dialogsPage}
-            />}
-          />
-          <Route path='/Music' render={() => <Music/>}/>
-          <Route path='/News' render={() => <News/>}/>
-          <Route path='/Settings' render={() => <Settings/>}/>
-        </div>
+    <div className='appWrapper'>
+      <Header/>
+      <Navbar sidebar={props.state.sidebar}/>
+      <div className='appWrapperContent'>
+        <Route path='/Profile' render={() =>
+          <Profile
+            dispatch={props.dispatch}
+            profilePage={props.state.profilePages}
+          />}
+        />
+        <Route /*exact*/ path='/dialogs' render={() =>
+          <Dialogs
+            dispatch={props.dispatch}
+            dialogsPage={props.state.dialogsPage}
+          />}
+        />
+        <Route path='/Music' render={() => <Music/>}/>
+        <Route path='/News' render={() => <News/>}/>
+        <Route path='/Settings' render={() => <Settings/>}/>
       </div>
+    </div>
   );
 }
 
