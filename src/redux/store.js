@@ -4,7 +4,7 @@ import sidebarReducer from "./sidebarReducer"
 
 let store = {
   _state: {
-    profilePages: {
+    profilePage: {
       newPostText: '',
       profilePosts: [
         {id: 1, message: 'Hey Hi! It\'s first mesagge', likeCount: 20},
@@ -47,9 +47,9 @@ let store = {
     return this._state
   },
   dispatch(action) {
-    this._state.profilePages = profileReducer(action, this._state.profilePages)
-    this._state.dialogsPage = dialogsReducer(action, this._state.dialogsPage)
-    this._state.sidebar = sidebarReducer(action, this._state.sidebar)
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action)
     this._callSubscriber(this._state)
   }
 }

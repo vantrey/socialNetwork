@@ -2,22 +2,22 @@ import React from "react";
 import styles from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {addNewDialogMsgActionCreator, dialogMsgUpdActionCreator} from "../../redux/dialogsReducer"
 
 const Dialogs = (props) => {
-  let onAddNewDialogsMsg = () => {
-    props.dispatch(addNewDialogMsgActionCreator())
-  }
-  let onDialogMsgUpd = (e) => {
-    props.dispatch(dialogMsgUpdActionCreator(e.currentTarget.value))
-  }
-  let dialogsElements = props.dialogsPage.dialogsItems.map((dialog, index) => (
+
+  let dialogsElements = props.dialogsItems.map((dialog, index) => (
     <Dialog key={index} id={dialog.id} name={dialog.name}/>
   ))
-
-  let messagesElements = props.dialogsPage.dialogsMessages.map((message, index) => (
+  let messagesElements = props.dialogsMessages.map((message, index) => (
     <Message key={index} id={message.id} message={message.message} ownMessage={message.ownMessage}/>
   ))
+
+  let onAddNewDialogsMsg = () => {
+    props.addNewDialogsMsg()
+  }
+  let onDialogMsgUpd = (e) => {
+    props.dialogMsgUpd(e.target.value)
+  }
 
   return (
     <div className={styles.dialogs}>
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
         <textarea
           placeholder={`Enter your message`}
           onChange={onDialogMsgUpd}
-          value={props.dialogsPage.newDialogMsgText}
+          value={props.newDialogMsgText}
         />
         <button onClick={onAddNewDialogsMsg}>Add message</button>
       </div>
