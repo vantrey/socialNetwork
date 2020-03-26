@@ -3,8 +3,7 @@ import {addNewPostActionCreator, postTextUpdActionCreator} from "../../../redux/
 import MyPosts from "./MyPosts"
 import {connect} from "react-redux"
 
-const MyPostsContainer = (props) => {
-/*
+/*const MyPostsContainer = (props) => {
   const state = props.store.getState()
   const posts = state.profilePage.profilePosts
   const newPostText = state.profilePage.newPostText
