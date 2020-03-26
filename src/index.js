@@ -5,15 +5,18 @@ import './index.css';
 import App from './App';
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux"
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
-      <App
-        dispatch={store.dispatch.bind(store)}
-        state={state}
-        store={store}
-      />
+      <Provider>
+        <App
+          dispatch={store.dispatch.bind(store)}
+          state={state}
+          store={store}
+        />
+      </Provider>
     </BrowserRouter>, document.getElementById('root'));
 }
 rerenderEntireTree(store.getState())
