@@ -1,13 +1,20 @@
 import React from 'react';
-import styles from './Sidebar.module.css';
-import Friend from "./Friend/Friend";
+import {connect} from "react-redux"
 import Sidebar from "./Sidebar"
 
-const SidebarContainer = (props) => {
+/*const SidebarContainer = (props) => {
   const sidebar = props.store.getState().sidebar
   return (
     <Sidebar sidebar={sidebar}/>
   )
+}*/
+
+const mapStateToProps = (state) => {
+  return {
+    sidebar: state.sidebar
+  }
 }
 
-export default SidebarContainer;
+const SidebarContainer = connect(mapStateToProps)(Sidebar)
+
+export default SidebarContainer
