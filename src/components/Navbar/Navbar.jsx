@@ -8,19 +8,19 @@ const Navbar = (props) => {
   return (
     <nav className={styles.nav}>
       <div className={styles.item}>
-        <NavLink to='/Profile'activeClassName={styles.activeLink}>Profile</NavLink>
+        <NavLink to='/profile'activeClassName={styles.activeLink}>Profile</NavLink>
       </div>
       <div className={`${styles.item} ${styles.active}`}>
-        <NavLink to='/Dialogs' activeClassName={styles.activeLink}>Messages</NavLink>
+        <NavLink to='/dialogs' activeClassName={styles.activeLink}>Messages</NavLink>
       </div>
       <div className={styles.item}>
-        <NavLink to='/News'activeClassName={styles.activeLink}>News</NavLink>
+        <NavLink to='/news'activeClassName={styles.activeLink}>News</NavLink>
       </div>
       <div className={styles.item}>
-        <NavLink to='/Music'activeClassName={styles.activeLink}>Music</NavLink>
+        <NavLink to='/music'activeClassName={styles.activeLink}>Music</NavLink>
       </div>
       <div className={styles.item}>
-        <NavLink to='/Settings'activeClassName={styles.activeLink}>Settings</NavLink>
+        <NavLink to='/settings'activeClassName={styles.activeLink}>Settings</NavLink>
       </div>
       <SidebarContainer store={props.store}/>
     </nav>
