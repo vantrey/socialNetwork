@@ -23,7 +23,6 @@ const Users = (props) => {
       {
         id: 3,
         photoUrl:'https://upload.wikimedia.org/wikipedia/commons/5/52/Uliana_Kaisheva.jpg',
-
         followed: false,
         fullName: 'Uliana',
         status: 'I am a boss boss boss',
