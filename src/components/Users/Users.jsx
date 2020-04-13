@@ -33,7 +33,8 @@ class Users extends React.Component {
           this.setCurrentPage(pageNumber)
         }}
         key={i}
-        className={(this.props.currentPage === pageNumber && styles.selected) || styles.main}
+        className=
+          {`${styles.pagesNumbers} ${(this.props.currentPage === pageNumber && styles.selected) || styles.usual}`}
       >
      {pageNumber}-
     </span>
