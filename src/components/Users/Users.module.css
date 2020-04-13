@@ -3,3 +3,11 @@
   height: 100px;
   border-radius: 10px;
 }
+
+.main {
+
+}
+
+.selected {
+ font-weight: bold;
+}
