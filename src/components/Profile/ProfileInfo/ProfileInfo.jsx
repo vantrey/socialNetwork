@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader"
-import Contacts from "./Contacts/Contacts"
+import Contact from "./Contact/Contact"
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -20,8 +20,15 @@ const ProfileInfo = (props) => {
         <span>
           {props.profile.aboutMe}
         </span>
-        <Contacts contacts={props.profile.contacts}/>
-
+        <h3>Contacts:</h3>
+        <Contact contactName={props.profile.contacts.facebook}/>
+        <Contact contactName={props.profile.contacts.website}/>
+        <Contact contactName={props.profile.contacts.vk}/>
+        <Contact contactName={props.profile.contacts.twitter}/>
+        <Contact contactName={props.profile.contacts.instagram}/>
+        <Contact contactName={props.profile.contacts.youtube}/>
+        <Contact contactName={props.profile.contacts.github}/>
+        <Contact contactName={props.profile.contacts.mainLink}/>
       </div>
 
     </div>
