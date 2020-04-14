@@ -1,5 +1,10 @@
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .description {
-  width: max-content;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -7,8 +12,42 @@
   font-weight: bold;
 }
 
+.photo {
+  width: min-content;
+}
+
+.contactsJobWrapp {
+  display: flex;
+  flex-direction: row;
+}
+
 .contacts {
-  padding: 10px;
+  min-width: 200px;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
 }
+
+.job {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.job span {
+  padding: 10px;
+  align-self: flex-end;
+}
+
+.jobTitle {
+  display: flex;
+}
+
+.jobTitle img {
+  padding-left: 10px;
+  width: 100px;
+  height: 70px;
+}
+
+
+
