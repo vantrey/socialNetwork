@@ -12,7 +12,7 @@ const Users = (props) => {
     let pageNumber = i + 1
     return <span
       onClick={() => {
-        props.setCurrentPage(pageNumber)
+        props.onPageChanged(pageNumber)
       }}
       key={i}
       className={
