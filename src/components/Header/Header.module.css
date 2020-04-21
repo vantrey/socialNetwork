@@ -1,7 +1,19 @@
-.header{
-    grid-area: h;
-    background-color: green;
+.header {
+  grid-area: h;
+  background-color: green;
 }
-.header img{
-    width: 50px;
+
+.header img {
+  position: absolute;
+  width: 50px;
+}
+
+.login {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+}
+
+.login a {
+  color: white;
 }
