@@ -2,8 +2,6 @@ import React from "react"
 import styles from './Users.module.css'
 import userNoPhoto from '../../assets/images/userImage.png'
 import {NavLink} from "react-router-dom"
-import * as axios from "axios"
-import {followingAPI} from "../../api/api"
 
 const Users = (props) => {
 
@@ -40,24 +38,10 @@ const Users = (props) => {
             {
               u.followed ?
                 <button disabled={props.followingProgressIDs.some(id => u.id === id)} onClick={() => {
-                  props.setFollowingProgress(true, u.id)
-                  followingAPI.unfollowUser(u.id)
-                    .then((data) => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(u.id)
-                      }
-                      props.setFollowingProgress(false, u.id)
-                    })
+                  props.unfollow(u.id)
                 }}>Unfollow</button> :
                 <button disabled={props.followingProgressIDs.some(id => u.id === id)} onClick={() => {
-                  props.setFollowingProgress(true, u.id)
-                  followingAPI.followUser(u.id)
-                    .then((data) => {
-                      if (data.resultCode === 0) {
-                        props.follow(u.id)
-                      }
-                      props.setFollowingProgress(false, u.id)
-                    })
+                  props.follow(u.id)
                 }}>Follow</button>
             }
           </div>

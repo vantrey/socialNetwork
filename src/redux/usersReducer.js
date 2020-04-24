@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api"
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -69,10 +71,46 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 export default usersReducer
-export const follow = (userId) => ({type: FOLLOW, userId: userId})
-export const unfollow = (userId) => ({type: UNFOLLOW, userId: userId})
-export const setUsers = (users) => ({type: SET_USERS, users: users})
+const followSuccess = (userId) => ({type: FOLLOW, userId: userId})
+const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId: userId})
+const setUsers = (users) => ({type: SET_USERS, users: users})
+const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count})
+const setIsFetching = (isFetching) => ({type: SET_IS_FETCHING, isFetching})
+const setFollowingProgress = (isFetching, userId) => ({type: SET_FOLLOWING_PROGRESS, isFetching, userId})
 export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber})
-export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count})
-export const setIsFetching = (isFetching) => ({type: SET_IS_FETCHING, isFetching})
-export const setFollowingProgress = (isFetching, userId) => ({type: SET_FOLLOWING_PROGRESS, isFetching, userId})
+
+export const getUsers = (pageSize, pageNumber) => {
+  return (dispatch) => {
+    dispatch(setIsFetching(true))
+    usersAPI.getUsers(pageSize, pageNumber)
+      .then(data => {
+        dispatch(setUsers(data.items))
+        dispatch(setTotalUsersCount(data.totalCount))
+        dispatch(setIsFetching(false))
+      })
+  }
+}
+export const unfollow = (userId) => {
+  return (dispath) => {
+    dispath(setFollowingProgress(true, userId))
+    usersAPI.unfollowUser(userId)
+      .then((data) => {
+        if (data.resultCode === 0) {
+          dispath(unfollowSuccess(userId))
+        }
+        dispath(setFollowingProgress(false, userId))
+      })
+  }
+}
+export const follow = (userId) => {
+  return (dispath) => {
+    dispath(setFollowingProgress(true, userId))
+    usersAPI.followUser(userId)
+      .then((data) => {
+        if (data.resultCode === 0) {
+          dispath(followSuccess(userId))
+        }
+        dispath(setFollowingProgress(false, userId))
+      })
+  }
+}
