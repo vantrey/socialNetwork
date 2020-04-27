@@ -1,53 +1,64 @@
-.profileInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.profileInfo
+{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
-.description {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  font-style: italic;
-  font-weight: bold;
+.description
+{
+    font-weight: bold;
+    font-style: italic;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
 }
 
-.photo {
-  width: min-content;
+.photo
+{
+    width: min-content;
 }
 
-.contactsJobWrapp {
-  display: flex;
-  flex-direction: row;
+.contactsJobWrapp
+{
+    display: flex;
+    flex-direction: row;
 }
 
-.contacts {
-  min-width: 200px;
-  padding-left: 10px;
-  display: flex;
-  flex-direction: column;
+.contacts
+{
+    display: flex;
+    flex-direction: column;
+
+    min-width: 200px;
+    padding-left: 10px;
 }
 
-.job {
-  padding-left: 30px;
-  display: flex;
-  flex-direction: column;
+.job
+{
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 30px;
 }
 
-.job span {
-  padding: 10px;
-  align-self: flex-end;
+.job span
+{
+    align-self: flex-end;
+
+    padding: 10px;
 }
 
-.jobTitle {
-  display: flex;
+.jobTitle
+{
+    display: flex;
 }
 
-.jobTitle img {
-  padding-left: 10px;
-  width: 100px;
-  height: 70px;
+.jobTitle img
+{
+    width: 100px;
+    height: 70px;
+    padding-left: 10px;
 }
-
-
-
