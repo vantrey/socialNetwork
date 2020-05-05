@@ -4,6 +4,7 @@ import Preloader from "../../common/Preloader/Preloader"
 import Contact from "./Contact/Contact"
 import yesImg from "../../../assets/images/yes-png-image.png"
 import noImg from "../../../assets/images/noImg.png"
+import ProfileStatus from "./ProfileStatus/ProfileStatus"
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -12,16 +13,19 @@ const ProfileInfo = (props) => {
   return (
     <div className={styles.profileInfo}>
       <div>
-        <img
+        {/*<img
           src='https://encrypted-tbn0.gstatic.com/
-          images?q=tbn%3AANd9GcQ5b0WN5OIEMhbg_WlCL2OwFimtuDGGtXzNnqq3mpT5P1nUN9Hc'/>
+          images?q=tbn%3AANd9GcQ5b0WN5OIEMhbg_WlCL2OwFimtuDGGtXzNnqq3mpT5P1nUN9Hc'/>*/}
       </div>
 
       <div className={styles.description}>
         <h1>{props.profile.fullName}</h1>
         <img className={styles.photo} src={props.profile.photos.large}/>
-        <p>
-          "{props.profile.aboutMe}"
+
+        <ProfileStatus updateAuthedUserStatus={props.updateAuthedUserStatus} status={props.userStatus}/>
+
+        <p className={styles.aboutMe}>
+          About me: <span>{props.profile.aboutMe}</span>
         </p>
         <div className={styles.contactsJobWrapp}>
           <div className={styles.contacts}>
@@ -39,7 +43,7 @@ const ProfileInfo = (props) => {
             <div className={styles.jobTitle}>
               <h3>Looking for a jod: </h3>
               {(props.profile.lookingForAJob &&
-                <img src={yesImg}></img>) ||
+                <img src={yesImg}/>) ||
               <img src={noImg}/>}
             </div>
             <span>{props.profile.lookingForAJobDescription}</span>

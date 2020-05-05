@@ -1,64 +1,64 @@
-.profileInfo
-{
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+.profileInfo {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
-.description
-{
-    font-weight: bold;
-    font-style: italic;
+.description {
+  font-weight: bold;
+  font-style: italic;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    padding: 10px;
+  padding: 10px;
 }
 
-.photo
-{
-    width: min-content;
+.photo {
+  width: min-content;
 }
 
-.contactsJobWrapp
-{
-    display: flex;
-    flex-direction: row;
+.aboutMe {
+  font-style: normal;
 }
 
-.contacts
-{
-    display: flex;
-    flex-direction: column;
-
-    min-width: 200px;
-    padding-left: 10px;
+.aboutMe span {
+  font-style: italic;
+  color: #0f9a00;
 }
 
-.job
-{
-    display: flex;
-    flex-direction: column;
-
-    padding-left: 30px;
+.contactsJobWrapp {
+  display: flex;
+  flex-direction: row;
 }
 
-.job span
-{
-    align-self: flex-end;
+.contacts {
+  display: flex;
+  flex-direction: column;
 
-    padding: 10px;
+  min-width: 200px;
+  padding-left: 10px;
 }
 
-.jobTitle
-{
-    display: flex;
+.job {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 30px;
 }
 
-.jobTitle img
-{
-    width: 100px;
-    height: 70px;
-    padding-left: 10px;
+.job span {
+  align-self: flex-end;
+
+  padding: 10px;
+}
+
+.jobTitle {
+  display: flex;
+}
+
+.jobTitle img {
+  width: 100px;
+  height: 70px;
+  padding-left: 10px;
 }

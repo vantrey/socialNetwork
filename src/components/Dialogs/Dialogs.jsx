@@ -40,4 +40,4 @@ const Dialogs = (props) => {
   )
 }
 
-export default withAuthRedirect(Dialogs);
+export default Dialogs
