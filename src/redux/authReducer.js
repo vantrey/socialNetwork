@@ -1,6 +1,7 @@
 import {authAPI} from "../api/api"
 
 const SET_AUTH_USER_DATA = 'authReducer/SET_AUTH_USER_DATA'
+const SET_LOGOUT = 'authReducer/SET_LOGOUT'
 
 
 const initialState = {
@@ -18,6 +19,8 @@ const authReducer = (state = initialState, action) => {
         ...action.data,
         isAuth: true,
       }
+    case SET_LOGOUT:
+      return {...state, isAuth: false}
 
     default:
       return state
@@ -25,6 +28,7 @@ const authReducer = (state = initialState, action) => {
 }
 export default authReducer
 const setAuthUserData = (userId, email, login) => ({type: SET_AUTH_USER_DATA, data: {userId, email, login}})
+const setLogout = () => ({type: SET_LOGOUT})
 export const getAuthUserData = () => {
   return (dispatch) => {
     authAPI.me().then(data => {
@@ -34,4 +38,23 @@ export const getAuthUserData = () => {
       }
     })
   }
+}
+export const login = (email, password, rememberMe) => (dispatch) => {
+  authAPI.login(email, password, rememberMe)
+    .then(response => {
+      console.log('resultCode: ' + response.data.resultCode + ' message: ' + response.data.messages)
+      if (response.data.resultCode === 0) {
+        dispatch(getAuthUserData())
+      } else if (response.data.resultCode === 10) {
+        console.log('captcha')
+      }
+    })
+}
+export const logout = () => (dispatch) => {
+  authAPI.logout()
+    .then(response => {
+      if (response.data.resultCode === 0) {
+        dispatch(setLogout())
+      }
+    })
 }
