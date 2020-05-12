@@ -1,8 +1,6 @@
 const ADD_NEW_DIALOG_MSG = 'ADD-NEW-DIALOG-MSG' //send message
-const DIALOG_MSG_UPD = 'DIALOG-MSG-UPD'
 
 const initialState = {
-  newDialogMsgText: '',
   dialogsItems: [
     {id: 1, name: 'Ivan',},
     {id: 2, name: 'Anna',},
@@ -23,17 +21,10 @@ const dialogsReducer = (state = initialState, action) => {
     case ADD_NEW_DIALOG_MSG: {
       return {
         ...state,
-        newDialogMsgText: '',
         dialogsMessages: [
           ...state.dialogsMessages,
-          {id: 6, message: state.newDialogMsgText, ownMessage: true}
+          {id: 6, message: action.newMessageText, ownMessage: true}
         ]
-      }
-    }
-    case DIALOG_MSG_UPD: {
-      return {
-        ...state,
-        newDialogMsgText: action.text
       }
     }
     default:
@@ -41,5 +32,4 @@ const dialogsReducer = (state = initialState, action) => {
   }
 }
 export default dialogsReducer
-export const addNewDialogMsgActionCreator = () => ({type: ADD_NEW_DIALOG_MSG})
-export const dialogMsgUpdActionCreator = (text) => ({type: DIALOG_MSG_UPD, text: text})
+export const addNewDialogMsgActionCreator = (newMessageText) => ({type: ADD_NEW_DIALOG_MSG, newMessageText})

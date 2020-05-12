@@ -1,4 +1,4 @@
-import {addNewDialogMsgActionCreator, dialogMsgUpdActionCreator} from "../../redux/dialogsReducer"
+import {addNewDialogMsgActionCreator} from "../../redux/dialogsReducer"
 import Dialogs from "./Dialogs"
 import {connect} from "react-redux"
 import {withAuthRedirect} from "../../hoc/withAuthRedirect"
@@ -12,12 +12,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addNewDialogsMsg: () => {
-      dispatch(addNewDialogMsgActionCreator())
-    },
-    dialogMsgUpd: (text) => {
-      dispatch(dialogMsgUpdActionCreator(text))
-    },
+    addNewDialogsMsg: (newMessageText) => {
+      dispatch(addNewDialogMsgActionCreator(newMessageText))
+    }
   }
 }
 
