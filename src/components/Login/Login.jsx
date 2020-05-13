@@ -1,10 +1,11 @@
 import React from "react"
 import {Field, reduxForm} from "redux-form"
 import {connect} from "react-redux"
-import {login, logout} from "../../redux/authReducer"
+import {login} from "../../redux/authReducer"
 import {required} from "../../utils/validators"
 import {Input} from "../common/FormsControls/FormsControls"
 import {Redirect} from "react-router-dom"
+import styles from "./Login.module.css"
 
 const LoginForm = (props) => {
   return (
@@ -16,10 +17,14 @@ const LoginForm = (props) => {
       <div>
         <Field component={Input} type={`password`} name={`password`} placeholder={`password`} validate={[required]}/>
       </div>
-      <div>
+      <div className={styles.rememberMe}>
         <Field component={Input} type={`checkbox`} name={`rememberMe`}
-        /> Remember me
+        /> <span>remember me</span>
       </div>
+      {props.error && <div className={styles.summaryError}>
+        {props.error}
+      </div>
+      }
       <div>
         <button>Login</button>
       </div>
