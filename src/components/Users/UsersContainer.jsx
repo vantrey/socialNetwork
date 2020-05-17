@@ -2,12 +2,10 @@ import React from "react"
 import {connect} from "react-redux"
 import {
   follow, requestUsers,
-  setCurrentPage,
   unfollow
 } from "../../redux/usersReducer"
 import Users from "./Users"
 import Preloader from "../common/Preloader/Preloader"
-import {withAuthRedirect} from "../../hoc/withAuthRedirect"
 import {compose} from "redux"
 import {
   getCurrentPage,
@@ -23,16 +21,6 @@ class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.pageSize, this.props.currentPage)
   }
-
-  /*  getUsers = (pageNumber) => {
-      this.props.setIsFetching(true)
-      usersAPI.getUsers(this.props.pageSize, pageNumber)
-        .then(data => {
-          this.props.setUsers(data.items)
-          this.props.setTotalUsersCount(data.totalCount)
-          this.props.setIsFetching(false)
-        })
-    }*/
 
   onPageChanged = (pageNumber) => {
     this.props.getUsers(this.props.pageSize, pageNumber)
