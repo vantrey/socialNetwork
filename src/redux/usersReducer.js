@@ -77,11 +77,12 @@ const setUsers = (users) => ({type: SET_USERS, users: users})
 const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count})
 const setIsFetching = (isFetching) => ({type: SET_IS_FETCHING, isFetching})
 const setFollowingProgress = (isFetching, userId) => ({type: SET_FOLLOWING_PROGRESS, isFetching, userId})
-export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber})
+const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber})
 
-export const getUsers = (pageSize, pageNumber) => {
+export const requestUsers = (pageSize, pageNumber) => {
   return (dispatch) => {
     dispatch(setIsFetching(true))
+    dispatch(setCurrentPage(pageNumber))
     usersAPI.getUsers(pageSize, pageNumber)
       .then(data => {
         dispatch(setUsers(data.items))
