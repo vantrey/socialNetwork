@@ -22,7 +22,7 @@ const Users = (props) => {
     </span>
   })
 
-  return <div>
+  return <div className={styles.users}>
     <div>
       {pagesNumbersEls}
     </div>

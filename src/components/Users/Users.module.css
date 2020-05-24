@@ -1,3 +1,7 @@
+.users {
+  padding: 10px;
+}
+
 .photo {
   width: 88px;
   height: 100px;
@@ -13,5 +17,5 @@
 }
 
 .selected {
- font-weight: bold;
+  font-weight: bold;
 }

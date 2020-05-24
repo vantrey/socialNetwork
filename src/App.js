@@ -27,7 +27,7 @@ class App extends React.Component {
       <div className='appWrapper'>
         <HeaderContainer/>
         <Navbar/>
-        <div className='appWrapperContent'>
+        <div className='appContent'>
           <Route path='/profile/:userId?'
                  render={() => <ProfileContainer/>}/>
           <Route path='/dialogs'

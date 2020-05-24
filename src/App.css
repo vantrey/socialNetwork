@@ -7,9 +7,11 @@
     "n c";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
-    /*grid-gap: 10px;*/
+    grid-gap: 5px;
 }
-.appWrapper .appWrapperContent {
+.appContent {
     grid-area: c;
     background-color: #ffe760;
+    border: 1px solid white;
+    border-radius: 25px;
 }
