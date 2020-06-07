@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
 import SidebarContainer from "../Sidebar/SidebarContainer"
 
 const Navbar = (props) => {

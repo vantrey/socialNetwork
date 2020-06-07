@@ -28,5 +28,3 @@ export const initialiseApp = () => async (dispatch) => {
   await Promise.all([getAuthUserDataPromise])
   dispatch(initialisedSuccess())
 }
-
-

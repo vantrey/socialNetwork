@@ -36,6 +36,7 @@ const Dialogs = (props) => {
 
 const maxLength = maxLengthCreator(10)
 const AddMessageForm = (props) => {
+  debugger
   return (
     <form onSubmit={props.handleSubmit}>
       <Field component={Textarea}
@@ -44,7 +45,7 @@ const AddMessageForm = (props) => {
              placeholder={`Enter your message`}
              validate={[required, maxLength]}
       />
-      <button>Add message</button>
+      <button disabled={!props.valid}>Add message</button>
     </form>
   )
 }

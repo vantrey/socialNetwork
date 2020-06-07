@@ -43,7 +43,7 @@ export const login = (email, password, rememberMe = false) => (dispatch) => {
       if (response.data.resultCode === 0) {
         dispatch(getAuthUserData())
       } else {
-        let message = response.data.messages.length ? response.data.messages[0] : 'some error'
+        let message = response.data.messages.length ? response.data.messages[0] : 'esom error'
         dispatch (stopSubmit('login', {_error: message}))
       }
     })

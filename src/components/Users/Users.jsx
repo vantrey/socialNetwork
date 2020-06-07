@@ -14,10 +14,8 @@ const Users = (props) => {
         props.onPageChanged(pageNumber)
       }}
       key={i}
-      className={
-        `${styles.pagesNumbers} ${(props.currentPage === pageNumber && styles.selected) || styles.usual}`
-      }
-    >
+      className={`${styles.pagesNumbers} ${(props.currentPage === pageNumber && styles.selected)
+      || styles.usual}`}>
      {pageNumber} -
     </span>
   })
