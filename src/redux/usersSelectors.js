@@ -22,3 +22,6 @@ export const getIsFetching = (state) => {
 export const getFollowingProgressIDs = (state) => {
   return state.usersPage.followingProgressIDs
 }
+export const getIsAuth = (state) => {
+  return state.auth.isAuth
+}

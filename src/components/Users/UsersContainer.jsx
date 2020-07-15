@@ -9,7 +9,7 @@ import Preloader from "../common/Preloader/Preloader"
 import {compose} from "redux"
 import {
   getCurrentPage,
-  getFollowingProgressIDs,
+  getFollowingProgressIDs, getIsAuth,
   getIsFetching,
   getPageSize,
   getTotalUsersCount,
@@ -37,6 +37,7 @@ class UsersContainer extends React.Component {
         follow={this.props.follow}
         unfollow={this.props.unfollow}
         followingProgressIDs={this.props.followingProgressIDs}
+        isAuth={this.props.isAuth}
       />}
     </>
   }
@@ -49,7 +50,8 @@ const mapStateToProps = (state) => {
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     isFetching: getIsFetching(state),
-    followingProgressIDs: getFollowingProgressIDs(state)
+    followingProgressIDs: getFollowingProgressIDs(state),
+    isAuth: getIsAuth(state)
   }
 }
 
