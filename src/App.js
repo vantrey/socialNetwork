@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {Route} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
@@ -13,6 +13,7 @@ import Login from "./components/Login/Login"
 import {connect} from "react-redux"
 import {initialiseApp} from "./redux/appReducer"
 import Preloader from "./components/common/Preloader/Preloader"
+import {compose} from "redux"
 
 class App extends React.Component {
   componentDidMount() {
@@ -51,4 +52,6 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   isInitialised: state.app.isInitialised
 })
-export default connect(mapStateToProps, {initialiseApp})(App);
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {initialiseApp}))(App);

@@ -7,9 +7,9 @@ import {Input} from "../common/FormsControls/FormsControls"
 import {Redirect} from "react-router-dom"
 import styles from "./Login.module.css"
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <Field
           component={Input} type={`text`} name={`email`} placeholder={`e-mail`} validate={[required]}/>
@@ -21,9 +21,9 @@ const LoginForm = (props) => {
         <Field component={Input} type={`checkbox`} name={`rememberMe`}
         /> <span>remember me</span>
       </div>
-      {props.error &&
+      {error &&
       <div className={styles.summaryError}>
-        {props.error}
+        {error}
       </div>
       }
       <div>

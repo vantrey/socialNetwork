@@ -4,7 +4,7 @@ import store from "./redux/redux-store";
 import './index.css';
 import App from './App';
 import ReactDOM from "react-dom";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import {Provider} from "react-redux"
 
 /*setInterval(() => {
@@ -12,11 +12,11 @@ import {Provider} from "react-redux"
 }, 1000);*/
 
   ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <App/>
       </Provider>
-    </BrowserRouter>, document.getElementById('root'));
+    </HashRouter>, document.getElementById('root'));
 
 
 

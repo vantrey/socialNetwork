@@ -1,4 +1,4 @@
-const ADD_NEW_DIALOG_MSG = 'ADD-NEW-DIALOG-MSG' //send message
+const ADD_NEW_DIALOG_MSG = 'dialogReducer/ADD-NEW-DIALOG-MSG' //send message
 
 const initialState = {
   dialogsItems: [

@@ -7,15 +7,3 @@
   height: 100px;
   border-radius: 10px;
 }
-
-.pagesNumbers {
-  cursor: pointer;
-}
-
-.usual {
-
-}
-
-.selected {
-  font-weight: bold;
-}
